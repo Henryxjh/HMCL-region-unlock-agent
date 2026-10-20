@@ -7,6 +7,12 @@ Terracotta 节点和离线账户默认行为不受影响。
 
 当前不包含 `RegionUtils` 的旧版 HMCL 也可以带着该 Agent 正常启动；Agent 会保持空闲。
 
+## 兼容性
+
+- 不要与其他修改 `RegionUtils` 或同类地区限制的 Java Agent 同时使用，多个字节码转换器叠加可能产生冲突。
+- Agent 只在内存中改写类，不修改 HMCL jar，因此不会导致签名校验失败。
+- 已在最新 pre-release HMCL 3.17.0.362 上验证。
+
 ## 构建
 
 在仓库根目录执行：
