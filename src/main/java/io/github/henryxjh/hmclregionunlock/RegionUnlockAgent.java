@@ -4,7 +4,7 @@
  * This project is deliberately independent from HMCL so that it can be built
  * before the proposed RegionUtils class lands in the main branch.
  */
-package org.jackhuang.hmcl.agent;
+package io.github.henryxjh.hmclregionunlock;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;

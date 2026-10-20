@@ -11,17 +11,17 @@
 在仓库根目录执行：
 
 ```bash
-./gradlew -p region-unlock-agent clean check jar
+gradle clean check jar
 ```
 
-产物位于 `region-unlock-agent/build/libs/hmcl-region-unlock-agent-1.0.0.jar`。
+产物位于 `build/libs/hmcl-region-unlock-agent-1.0.0.jar`。
 
 ## 使用
 
 把参数放在 `-jar HMCL-xxx.jar` 之前：
 
 ```bash
-java -javaagent:region-unlock-agent/build/libs/hmcl-region-unlock-agent-1.0.0.jar -jar HMCL.jar
+java -javaagent:build/libs/hmcl-region-unlock-agent-1.0.0.jar -jar HMCL.jar
 ```
 
 如果 Agent 与 HMCL jar 放在同一个目录，可以把路径缩短为：

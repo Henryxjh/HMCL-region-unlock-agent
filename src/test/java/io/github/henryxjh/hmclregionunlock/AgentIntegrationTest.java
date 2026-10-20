@@ -1,4 +1,4 @@
-package org.jackhuang.hmcl.agent;
+package io.github.henryxjh.hmclregionunlock;
 
 import org.jackhuang.hmcl.util.RegionUtils;
 

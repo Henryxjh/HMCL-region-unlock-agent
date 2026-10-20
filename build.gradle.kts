@@ -2,7 +2,7 @@ plugins {
     java
 }
 
-group = "org.jackhuang.hmcl"
+group = "io.github.henryxjh.hmclregionunlock"
 version = "1.0.0"
 
 repositories {
@@ -23,7 +23,7 @@ tasks.jar {
 
     manifest {
         attributes(
-            "Premain-Class" to "org.jackhuang.hmcl.agent.RegionUnlockAgent",
+            "Premain-Class" to "io.github.henryxjh.hmclregionunlock.RegionUnlockAgent",
             "Can-Redefine-Classes" to "false",
             "Can-Retransform-Classes" to "false"
         )
@@ -35,7 +35,7 @@ tasks.jar {
 tasks.register<JavaExec>("integrationTest") {
     dependsOn(tasks.jar, tasks.testClasses)
     classpath = sourceSets.test.get().runtimeClasspath
-    mainClass.set("org.jackhuang.hmcl.agent.AgentIntegrationTest")
+    mainClass.set("io.github.henryxjh.hmclregionunlock.AgentIntegrationTest")
     jvmArgs("-javaagent:${tasks.jar.get().archiveFile.get().asFile.absolutePath}")
 }
 
