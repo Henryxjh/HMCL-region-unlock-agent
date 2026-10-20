@@ -39,7 +39,7 @@ public final class RegionUnlockAgent {
             }
 
             try {
-                return disableMainlandDetection(classfileBuffer);
+                return disableNetworkRestriction(classfileBuffer);
             } catch (Throwable throwable) {
                 System.err.println("[HMCL Region Unlock Agent] Failed to patch RegionUtils; leaving it unchanged.");
                 throwable.printStackTrace(System.err);
@@ -48,7 +48,7 @@ public final class RegionUnlockAgent {
         }
     }
 
-    static byte[] disableMainlandDetection(byte[] original) {
+    static byte[] disableNetworkRestriction(byte[] original) {
         ClassReader reader = new ClassReader(original);
         ClassWriter writer = new ClassWriter(reader, 0);
 
@@ -61,8 +61,7 @@ public final class RegionUnlockAgent {
                     String signature,
                     String[] exceptions) {
                 MethodVisitor delegate = super.visitMethod(access, name, descriptor, signature, exceptions);
-                if (("isIsChinaMainlandMachine".equals(name)
-                        || "isIsChinaMainlandNetwork".equals(name))
+                if ("isIsChinaMainlandNetwork".equals(name)
                         && "()Z".equals(descriptor)) {
                     return new AlwaysFalseMethodVisitor(delegate);
                 }
