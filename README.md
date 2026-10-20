@@ -12,17 +12,17 @@ Terracotta 节点和离线账户默认行为不受影响。
 在仓库根目录执行：
 
 ```bash
-gradle clean check jar
+mvn clean verify
 ```
 
-产物位于 `build/libs/hmcl-region-unlock-agent-1.0.1.jar`。
+产物位于 `target/hmcl-region-unlock-agent-1.0.1.jar`。
 
 ## 使用
 
 把参数放在 `-jar HMCL-xxx.jar` 之前：
 
 ```bash
-java -javaagent:build/libs/hmcl-region-unlock-agent-1.0.1.jar -jar HMCL.jar
+java -javaagent:target/hmcl-region-unlock-agent-1.0.1.jar -jar HMCL.jar
 ```
 
 如果 Agent 与 HMCL jar 放在同一个目录，可以把路径缩短为：
